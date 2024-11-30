@@ -17,7 +17,6 @@ public class Car : MonoBehaviour
     private void Awake()
     {
         lastTimeIncrease = Time.time;
-        
     }
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Obstacle"))
