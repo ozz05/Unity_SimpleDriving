@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class ScoreHandler : MonoBehaviour
 {
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private int scoreMultiplier = 10;
-    private const string HighScoreKey = "HighScore";
+    public const string HighScoreKey = "HighScore";
     private float score;
     private void Start()
     {
