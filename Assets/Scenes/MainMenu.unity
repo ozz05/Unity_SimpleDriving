@@ -1014,6 +1014,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1927561198}
   - component: {fileID: 1927561199}
+  - component: {fileID: 1927561200}
+  - component: {fileID: 1927561201}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1051,9 +1053,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSceneName: Game
   highscoreText: {fileID: 1992867933}
+  androidNotificationHandler: {fileID: 1927561200}
+  iOSNotificationHandler: {fileID: 1927561201}
   maxEnergy: 5
   energyRechargeDuration: 1
   energyImage: {fileID: 1308141917}
+--- !u!114 &1927561200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927561197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ffb69d6b4d24444b142bf4d7235d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1927561201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927561197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dedc35b555a19e3459fcd6e5462bf0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1972829856
 GameObject:
   m_ObjectHideFlags: 0
