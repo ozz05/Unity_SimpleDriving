@@ -1053,6 +1053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSceneName: Game
   highscoreText: {fileID: 1992867933}
+  playButton: {fileID: 1890980771}
   androidNotificationHandler: {fileID: 1927561200}
   iOSNotificationHandler: {fileID: 1927561201}
   maxEnergy: 5

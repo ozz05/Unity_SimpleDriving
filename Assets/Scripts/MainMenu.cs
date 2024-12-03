@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private string gameSceneName = "Game";
     [SerializeField] private TMP_Text highscoreText;
+    [SerializeField] private Button playButton;
     [SerializeField] private AndroidNotificationHandler androidNotificationHandler;
     [SerializeField] private IOSNotificationHandler iOSNotificationHandler;
     [SerializeField] private int maxEnergy;
@@ -21,7 +22,15 @@ public class MainMenu : MonoBehaviour
     private const string EnergyKey = "Energy";
     private const string EnergyReadyKey = "EnergyReady";
 
-    private void Start() {
+    private void Start()
+    {
+        OnApplicationFocus(true);
+    }
+    private void OnApplicationFocus(bool focusStatus){
+        
+        if(!focusStatus) return;
+        //This method cancels all invokes that are currently running if you have more the one use a string to specify which one
+        CancelInvoke();
         //Set the High Score
         int currentHighScore = PlayerPrefs.GetInt(ScoreHandler.HighScoreKey, 0);
         highscoreText.text = currentHighScore.ToString();
@@ -41,10 +50,20 @@ public class MainMenu : MonoBehaviour
             //Check if the time has past
             if (DateTime.Now > energyReady)
             {
-                energy = maxEnergy;
-                PlayerPrefs.SetInt(EnergyKey, energy);
+                RechargeEnergy();
+            }
+            else
+            {
+                playButton.interactable = false;
+                Invoke(nameof(RechargeEnergy), (energyReady - DateTime.Now).Seconds);
             }
         }
+    }
+    private void RechargeEnergy()
+    {
+        playButton.interactable = true;
+        energy = maxEnergy;
+        PlayerPrefs.SetInt(EnergyKey, energy);
         UpdateEnergyImage();
     }
     public void UpdateEnergyRecharge()
